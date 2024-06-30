@@ -1,25 +1,64 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+const data =[
+  {
+    id :1 ,
+    name : 'John',
+    age : 25,
+    city : 'New York',
+    country : 'USA',
+    job : 'Software Engineer'
+  },
+  {
+    id :2 ,
+    name : 'Smith',
+    age : 30,
+    city : 'London',
+    country : 'UK',
+    job : 'Doctor'
+  },
+  {
+    id :3 ,
+    name : 'David',
+    age : 35,
+    city : 'Sydney',
+    country : 'Australia',
+    job : 'Teacher'
+  },
+  {
+    id :4 ,
+    name : 'Paul',
+    age : 40,
+    city : 'Paris',
+    country : 'France',
+    job : 'Businessman'
+  },
+  {
+    id :5 ,
+    name : 'Robert',
+    age : 45,
+    city : 'Berlin',
+    country : 'Germany',
+    job : 'Politician'
+  }
+
+]
+
+
+const App = () => {
+const EmployeeDetails  = data.map(employees => {
+  const employNames = `${employees.name}`
+  return <li>{employNames}</li>
+})
+
+return (
+  <div>
+    <h1>Employee Details</h1>
+    <ul>
+      {EmployeeDetails}
+    </ul>
     </div>
-  );
+)
 }
 
-export default App;
+export default App
