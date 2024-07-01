@@ -1,64 +1,36 @@
-import React from 'react'
+import "./App.css";
+import DessertsList from "./DessertsList";
 
-const data =[
+const desserts = [
   {
-    id :1 ,
-    name : 'John',
-    age : 25,
-    city : 'New York',
-    country : 'USA',
-    job : 'Software Engineer'
+    name: "Chocolate Cake",
+    calories: 400,
+    createdAt: "2022-09-01",
   },
   {
-    id :2 ,
-    name : 'Smith',
-    age : 30,
-    city : 'London',
-    country : 'UK',
-    job : 'Doctor'
+    name: "Ice Cream",
+    calories: 200,
+    createdAt: "2022-01-02",
   },
   {
-    id :3 ,
-    name : 'David',
-    age : 35,
-    city : 'Sydney',
-    country : 'Australia',
-    job : 'Teacher'
+    name: "Tiramisu",
+    calories: 300,
+    createdAt: "2021-10-03",
   },
   {
-    id :4 ,
-    name : 'Paul',
-    age : 40,
-    city : 'Paris',
-    country : 'France',
-    job : 'Businessman'
+    name: "Cheesecake",
+    calories: 600,
+    createdAt: "2022-01-04",
   },
-  {
-    id :5 ,
-    name : 'Robert',
-    age : 45,
-    city : 'Berlin',
-    country : 'Germany',
-    job : 'Politician'
-  }
+];
 
-]
-
-
-const App = () => {
-const EmployeeDetails  = data.map(employees => {
-  const employNames = `${employees.name}`
-  return <li>{employNames}</li>
-})
-
-return (
-  <div>
-    <h1>Employee Details</h1>
-    <ul>
-      {EmployeeDetails}
-    </ul>
+function App() {
+  return (
+    <div className="App">
+      <h2>List of low calorie desserts:</h2>
+      <DessertsList data={desserts} />
     </div>
-)
+  );
 }
 
-export default App
+export default App;
