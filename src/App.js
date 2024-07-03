@@ -1,124 +1,46 @@
-import './App.css';
-import { useState } from 'react';
-import { validateEmail } from './utils';
+import "./App.css";
 
-const PasswordErrorMessage = () => {
+const LoggedInUser =() =>{
   return (
-    <p className="FieldError">Password should have at least 8 characters</p>
+    <p>
+      Welcome <span className="Username"></span>
+    </p>
   );
 };
 
-function App() {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState({
-    value: '',
-    isTouched: false,
-  });
-  const [role, setRole] = useState('role');
 
-  const getIsFormValid = () => {
-    return (
-      firstName &&
-      validateEmail(email) &&
-      password.value.length >= 8 &&
-      role !== 'role'
-    );
-  };
-
-  const clearForm = () => {
-    setFirstName('');
-    setLastName('');
-    setEmail('');
-    setPassword({
-      value: '',
-      isTouched: false,
-    });
-    setRole('role');
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    alert('Account created!');
-    clearForm();
-  };
-
+const Header =()=>{
   return (
-    <div className="App">
-      <form onSubmit={handleSubmit}>
-        <fieldset>
-          <h2>Sign Up</h2>
-          <div className="Field">
-            <label>
-              First name <sup>*</sup>
-            </label>
-            <input
-              value={firstName}
-              onChange={(e) => {
-                setFirstName(e.target.value);
-              }}
-              placeholder="First name"
-            />
-          </div>
-          <div className="Field">
-            <label>Last name</label>
-            <input
-              value={lastName}
-              onChange={(e) => {
-                setLastName(e.target.value);
-              }}
-              placeholder="Last name"
-            />
-          </div>
-          <div className="Field">
-            <label>
-              Email address <sup>*</sup>
-            </label>
-            <input
-              value={email}
-              onChange={(e) => {
-                setEmail(e.target.value);
-              }}
-              placeholder="Email address"
-            />
-          </div>
-          <div className="Field">
-            <label>
-              Password <sup>*</sup>
-            </label>
-            <input
-              value={password.value}
-              type="password"
-              onChange={(e) => {
-                setPassword({ ...password, value: e.target.value });
-              }}
-              onBlur={() => {
-                setPassword({ ...password, isTouched: true });
-              }}
-              placeholder="Password"
-            />
-            {password.isTouched && password.value.length < 8 ? (
-              <PasswordErrorMessage />
-            ) : null}
-          </div>
-          <div className="Field">
-            <label>
-              Role <sup>*</sup>
-            </label>
-            <select value={role} onChange={(e) => setRole(e.target.value)}>
-              <option value="role">Role</option>
-              <option value="individual">Individual</option>
-              <option value="business">Business</option>
-            </select>
-          </div>
-          <button type="submit" disabled={!getIsFormValid()}>
-            Create account
-          </button>
-        </fieldset>
-      </form>
+    <header>
+      <h1>Blog App</h1>
+      <LoggedInUser />
+    </header>
+  );
+};
+
+
+const Page =()=>{
+  return (
+    <div>
+      <h1>What is Lorem, ipsum dolor.?</h1>
+      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facilis consequuntur iusto laborum amet voluptatibus vero veritatis in iste accusamus numquam est sint excepturi, architecto ducimus modi obcaecati itaque dignissimos explicabo fugit, quisquam tempora dolor at, delectus soluta. Architecto, laudantium inventore enim consequuntur cupiditate dolores, aliquid vitae officia expedita obcaecati, nihil provident ab a ea est modi voluptatum veniam cum cumque quas dolorum. Reprehenderit ipsum excepturi iusto, quisquam ea, culpa, dignissimos quaerat soluta voluptas odio esse eveniet neque minus mollitia quidem sunt molestiae illum sed dolor. Dolorem adipisci vero minima a deserunt laudantium reiciendis saepe fuga nam rem, ea tempora ipsam nihil asperiores consectetur ad odit! Eligendi incidunt labore officiis voluptas numquam. Veniam atque corporis totam rem facere alias magnam fugiat, eligendi explicabo dignissimos.</p>
+   <p>Written By </p>
     </div>
   );
 }
 
-export default App;
+function App() {
+  return (
+    <div className="App">
+      <Header />
+      <Page />
+    </div>
+  );
+}
+
+
+function Root(){
+  return <App />;
+}
+
+export default Root;
