@@ -16,4 +16,4 @@ export const ThemeProvider = ({children}) => {
     )
 }
 
-export const useTheme = () => useContext(ThemeContext);
+export const useTheme = () => useContext(ThemeContext);   // instead of using useContext(ThemeContext) in every component we can use this custom hook useTheme
