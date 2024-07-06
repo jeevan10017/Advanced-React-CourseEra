@@ -29,22 +29,67 @@
 // );
 
 // export default ThemedApp;
-import React from 'react'
+// import React from 'react'
 
-function handleClick() {
-  let randomNum = Math.floor(Math.random() * 9) + 1;  // Math.random() generates a random number between 0 and 1 //math.floor() rounds the number to the nearest integer
-  console.log(randomNum);
-  let UserInput = prompt('Guess the number between 1 and 9');
-  alert(UserInput == randomNum ? 'Good Work , You are Lucky Today' : 'Not matched, the Random number was ' + randomNum)
-}
+// function handleClick() {
+//   let randomNum = Math.floor(Math.random() * 9) + 1;  // Math.random() generates a random number between 0 and 1 //math.floor() rounds the number to the nearest integer
+//   console.log(randomNum);
+//   let UserInput = prompt('Guess the number between 1 and 9');
+//   alert(UserInput == randomNum ? 'Good Work , You are Lucky Today' : 'Not matched, the Random number was ' + randomNum)
+// }
+
+// const App = () => {
+//   return (
+//     <div>
+//       <h1>Task: Add a button and handle a Click Event</h1>
+//       <button onClick={handleClick}>Guess the Number between 1 and  9</button>
+//     </div>
+//   )
+// }
+
+// export default App
+
+
+import React from 'react'
+import ParentComponent from './Components/ParentComponent';
+import ChildComponent from './Components/ChildComponent';
+import grandChildComponent from './Components/grandChildComponent';
 
 const App = () => {
   return (
     <div>
-      <h1>Task: Add a button and handle a Click Event</h1>
-      <button onClick={handleClick}>Guess the Number between 1 and  9</button>
-    </div>
+      <ParentComponent/>
+      <ChildComponent/>
+      <grandChildComponent/>
+      </div>
   )
 }
 
 export default App
+
+
+//Parent Component
+function Dog() {
+  return (
+      <Puppy name="Max" bowlShape="square" bowlStatus="full" />
+  );
+};
+
+
+// Child component:
+function Puppy(props) {
+  return (
+      <div>
+          {props.name} has <Bowl bowlShape="square" bowlStatus="full" />
+      </div>
+  );
+};
+
+// Grandchild component:
+function Bowl(props) {
+  return (
+      <span>
+          {props.bowlShape}-shaped bowl, and it's currently {props.bowlStatus}
+      </span>
+  );
+};
