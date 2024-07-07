@@ -51,16 +51,17 @@
 
 
 import React from 'react'
-import ParentComponent from './Components/ParentComponent';
-import ChildComponent from './Components/ChildComponent';
-import grandChildComponent from './Components/grandChildComponent';
+import Child from './Child'
+
 
 const App = () => {
+  const date = new Date();
+  console.log(date.toLocaleTimeString())
   return (
     <div>
-      <ParentComponent/>
-      <ChildComponent/>
-      <grandChildComponent/>
+      <h1>Present Time is </h1>
+      <Child message={date.toLocaleTimeString()}/>
+     
       </div>
   )
 }
