@@ -52,36 +52,60 @@
 
 
 //Using of HOOKs in React
-import Child from './Child';
-import React, { useState } from 'react'
-import RegisterForm from './RegisterForm';
-import TextInputWithFocusButton from './TextInputWithFocusButton';
+// import Child from './Child';
+// import React, { useState } from 'react'
+// import RegisterForm from './RegisterForm';
+// import TextInputWithFocusButton from './TextInputWithFocusButton';
+
+// const App = () => {
+//   // const date = new Date();
+//   // console.log(date.toLocaleTimeString())
+//   const [inputValue,setValue]= useState("Type Here");
+//   const handleChange =(e) =>{
+//     setValue(e.target.value);
+//   }
+//   return (
+//     <div>
+//       <h1>Present Time is </h1>
+      
+//       <input value={inputValue} onChange={handleChange} />
+//       You Typed : {inputValue};
+//       <Child message={inputValue}/>
+//       <button onClick={()=>setValue("Type Here")}>Reset</button>
+
+// <div>
+//       {/* RegisterForm */}
+//      <RegisterForm/> </div>
+
+//      <TextInputWithFocusButton />
+//       </div>
+//   )
+// }
+
+// export default App
+
+
+import React from 'react'
+import { useState } from 'react'
+import Fruits from './Fruits/Fruits'
+import FruitsCounter from './Fruits/FruitsCounter'
 
 const App = () => {
-  // const date = new Date();
-  // console.log(date.toLocaleTimeString())
-  const [inputValue,setValue]= useState("Type Here");
-  const handleChange =(e) =>{
-    setValue(e.target.value);
-  }
+  // const fruits =([      
+  const [fruits] =useState([   //useState is a hook that allows you to have state variables in functional components
+    {id:1,fruitName:'Apple'},
+    {id:2,fruitName:'Banana'},
+    {id:3,fruitName:'Orange'},
+    {id:4,fruitName:'Grapes'},
+    {id:5,fruitName:'Pineapple'},
+  ]);
   return (
     <div>
-      <h1>Present Time is </h1>
-      
-      <input value={inputValue} onChange={handleChange} />
-      You Typed : {inputValue};
-      <Child message={inputValue}/>
-      <button onClick={()=>setValue("Type Here")}>Reset</button>
-
-<div>
-      {/* RegisterForm */}
-     <RegisterForm/> </div>
-
-     <TextInputWithFocusButton />
-      </div>
+      <h1>Where Should State Go?</h1>
+      <Fruits fruits={fruits}/>
+      <FruitsCounter fruits={fruits}/>
+    </div>
   )
 }
 
 export default App
-
-
