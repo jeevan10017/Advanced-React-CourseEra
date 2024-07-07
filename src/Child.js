@@ -2,7 +2,10 @@ import React from 'react'
 
 const Child = (props) => {
   return (
-    <h1>{props.message}</h1>
+    <>
+    <h1>This is Props Message</h1>
+    <>{props.message}</>
+    </>
   )
 }
 

@@ -50,18 +50,34 @@
 // export default App
 
 
-import React from 'react'
-import Child from './Child'
 
+//Using of HOOKs in React
+import Child from './Child';
+import React, { useState } from 'react'
+import RegisterForm from './RegisterForm';
+import TextInputWithFocusButton from './TextInputWithFocusButton';
 
 const App = () => {
-  const date = new Date();
-  console.log(date.toLocaleTimeString())
+  // const date = new Date();
+  // console.log(date.toLocaleTimeString())
+  const [inputValue,setValue]= useState("Type Here");
+  const handleChange =(e) =>{
+    setValue(e.target.value);
+  }
   return (
     <div>
       <h1>Present Time is </h1>
-      <Child message={date.toLocaleTimeString()}/>
-     
+      
+      <input value={inputValue} onChange={handleChange} />
+      You Typed : {inputValue};
+      <Child message={inputValue}/>
+      <button onClick={()=>setValue("Type Here")}>Reset</button>
+
+<div>
+      {/* RegisterForm */}
+     <RegisterForm/> </div>
+
+     <TextInputWithFocusButton />
       </div>
   )
 }
@@ -69,28 +85,3 @@ const App = () => {
 export default App
 
 
-//Parent Component
-function Dog() {
-  return (
-      <Puppy name="Max" bowlShape="square" bowlStatus="full" />
-  );
-};
-
-
-// Child component:
-function Puppy(props) {
-  return (
-      <div>
-          {props.name} has <Bowl bowlShape="square" bowlStatus="full" />
-      </div>
-  );
-};
-
-// Grandchild component:
-function Bowl(props) {
-  return (
-      <span>
-          {props.bowlShape}-shaped bowl, and it's currently {props.bowlStatus}
-      </span>
-  );
-};
